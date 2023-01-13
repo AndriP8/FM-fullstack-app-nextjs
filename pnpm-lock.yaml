@@ -7,6 +7,7 @@ specifiers:
   '@emotion/styled': ^11.10.5
   '@next/font': 13.1.1
   '@prisma/client': ^4.8.1
+  '@types/bcrypt': ^5.0.0
   '@types/node': 18.11.18
   '@types/react': 18.0.26
   '@types/react-dom': 18.0.10
@@ -68,6 +69,7 @@ dependencies:
   typescript: 4.9.4
 
 devDependencies:
+  '@types/bcrypt': 5.0.0
   '@typescript-eslint/eslint-plugin': 5.48.0_k73wpmdolxikpyqun3p36akaaq
   '@typescript-eslint/parser': 5.48.0_iukboom6ndih5an6iafl45j2fe
   babel-plugin-superjson-next: 0.4.5_next@13.1.1
@@ -1679,6 +1681,12 @@ packages:
 
   /@tsconfig/node16/1.0.3:
     resolution: {integrity: sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==}
+    dev: true
+
+  /@types/bcrypt/5.0.0:
+    resolution: {integrity: sha512-agtcFKaruL8TmcvqbndlqHPSJgsolhf/qPWchFlgnW1gECTN/nKbFcoFnvKAQRFfKbh+BO6A3SWdJu9t+xF3Lw==}
+    dependencies:
+      '@types/node': 18.11.18
     dev: true
 
   /@types/json-schema/7.0.11:
