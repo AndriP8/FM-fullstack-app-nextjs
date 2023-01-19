@@ -21,13 +21,12 @@ export const validateRoute = (handler: ValidateRouteTypes) => {
       try {
         const decoded = jwt.verify(token, "hello") as ResultToken;
         user = await prisma.user.findUnique({ where: { id: decoded.id } });
-        console.log(decoded, "sss");
         if (!user) {
           throw new Error("Not real user");
         }
       } catch (error) {
         res.status(401);
-        res.json({ error: "Not Authorizedddddd" });
+        res.json({ error: "Not Authorized" });
         return;
       }
       return handler(req, res, user);
