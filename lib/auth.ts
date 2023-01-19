@@ -7,6 +7,11 @@ type ValidateRouteTypes = (
   user: any,
 ) => void;
 
+interface ResultToken {
+  id: number;
+  email: string;
+}
+
 export const validateRoute = (handler: ValidateRouteTypes) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
     const token = req.cookies.TRAX_ACCESS_TOKEN;
@@ -14,14 +19,15 @@ export const validateRoute = (handler: ValidateRouteTypes) => {
     if (token) {
       let user;
       try {
-        const decoded = jwt.verify(token, "hello");
-        user = await prisma.user.findUnique({ where: { id: Number(decoded) } });
+        const decoded = jwt.verify(token, "hello") as ResultToken;
+        user = await prisma.user.findUnique({ where: { id: decoded.id } });
+        console.log(decoded, "sss");
         if (!user) {
           throw new Error("Not real user");
         }
       } catch (error) {
         res.status(401);
-        res.json({ error: "Not Authorized" });
+        res.json({ error: "Not Authorizedddddd" });
         return;
       }
       return handler(req, res, user);
