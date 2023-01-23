@@ -1,19 +1,23 @@
 import useSWR from "swr";
 import fetcher from "./fetcher";
 
+export interface Song {
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
+  name: string;
+  artistId: number;
+  duration: number;
+  url: string;
+}
+
 export interface Playlist {
   createdAt: string;
   id: number;
   name: string;
   updatedAt: string;
   userId: number;
-  songs: {
-    id: number;
-    name: string;
-    artistId: number;
-    duration: number;
-    url: string;
-  }[];
+  songs: Song[];
 }
 
 interface User {

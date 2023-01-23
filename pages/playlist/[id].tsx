@@ -1,7 +1,6 @@
-import { Text } from "@chakra-ui/react";
 import { GetServerSideProps } from "next";
 import GradientLayout from "../../components/GradientLayout";
-// import SongTable from "../../components/songsTable";
+import SongTable from "../../components/SongTable";
 import { validateToken } from "../../lib/auth";
 import { Playlist } from "../../lib/hook";
 import prisma from "../../lib/prisma";
@@ -37,7 +36,7 @@ const PlaylistUser = (props: PlaylistProps) => {
       description={`${props.playlist.songs.length} songs`}
       image={"https://picsum.photos/400?random=${props.playlist.id}"}
     >
-      <Text>test</Text>
+      <SongTable songs={props.playlist.songs} />
     </GradientLayout>
   );
 };
