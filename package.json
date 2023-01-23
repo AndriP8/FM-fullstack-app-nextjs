@@ -39,6 +39,7 @@
     "@types/bcrypt": "^5.0.0",
     "@types/cookie": "^0.5.1",
     "@types/jsonwebtoken": "^9.0.1",
+    "@types/react-howler": "^5.2.0",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
     "babel-plugin-superjson-next": "^0.4.5",
