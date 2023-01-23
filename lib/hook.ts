@@ -1,12 +1,19 @@
 import useSWR from "swr";
 import fetcher from "./fetcher";
 
-interface Playlist {
+export interface Playlist {
   createdAt: string;
   id: number;
   name: string;
   updatedAt: string;
   userId: number;
+  songs: {
+    id: number;
+    name: string;
+    artistId: number;
+    duration: number;
+    url: string;
+  }[];
 }
 
 interface User {
@@ -21,8 +28,6 @@ interface User {
 
 export const useMe = () => {
   const { data, error } = useSWR<User>("/me", fetcher);
-
-  console.log(data);
 
   return {
     user: data,
