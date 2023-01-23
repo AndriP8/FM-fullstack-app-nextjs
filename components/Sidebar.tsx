@@ -53,8 +53,6 @@ const playlists = new Array(30).fill(1).map((_, idx) => `Playlist ${idx + 1}`);
 
 const Sidebar = () => {
   const { playlists } = usePlaylist();
-  // console.log(playlists);
-
   return (
     <Box
       width="full"

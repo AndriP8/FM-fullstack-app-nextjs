@@ -14,24 +14,28 @@ interface User {
   createdAt: string;
   updatedAt: string;
   email: string;
+  firstname: string;
+  lastname: string;
   playlistsCount: number;
 }
 
 export const useMe = () => {
-  const { data, error } = useSWR("/me", fetcher);
+  const { data, error } = useSWR<User>("/me", fetcher);
+
+  console.log(data);
 
   return {
-    user: data as User,
+    user: data,
     isLoading: !data && !error,
     isError: error,
   };
 };
 
 export const usePlaylist = () => {
-  const { data, error } = useSWR("/playlist", fetcher);
+  const { data, error } = useSWR<Playlist[]>("/playlist", fetcher);
 
   return {
-    playlists: (data as Playlist[]) || [],
+    playlists: data || [],
     isLoading: !data && !error,
     isError: error,
   };
