@@ -18,6 +18,8 @@ export default async function handler(
       data: {
         email,
         password: bcrypt.hashSync(password, salt),
+        firstname: "John",
+        lastname: "example",
       },
     });
   } catch (e) {
